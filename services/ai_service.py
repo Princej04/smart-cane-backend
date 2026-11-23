@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 if not GEMINI_API_KEY:
     raise EnvironmentError("GEMINI_API_KEY is not set in your .env file.")
 
-client = genai.Client(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key=GEMINI_API_KEY, http_options={"api_version": "v1beta"})
 
 
 async def get_ai_response(question: str, image_bytes: bytes) -> str:
